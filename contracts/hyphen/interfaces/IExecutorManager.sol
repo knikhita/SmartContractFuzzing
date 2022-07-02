@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
 interface IExecutorManager {
-
-     /// #if_succeeds $result == true;
     function getExecutorStatus(address executor) external view returns (bool status);
-   
+
     function getAllExecutors() external view returns (address[] memory);
 
     //Register new Executors
@@ -21,4 +19,3 @@ interface IExecutorManager {
     // Remove Register single executor
     function removeExecutor(address executorAddress) external;
 }
-

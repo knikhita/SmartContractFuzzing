@@ -1,14 +1,22 @@
+// $$$$$$$$\                                           $$\                               $$\      $$\                                                             
+// $$  _____|                                          $$ |                              $$$\    $$$ |                                                            
+// $$ |      $$\   $$\  $$$$$$\   $$$$$$$\ $$\   $$\ $$$$$$\    $$$$$$\   $$$$$$\        $$$$\  $$$$ | $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  
+// $$$$$\    \$$\ $$  |$$  __$$\ $$  _____|$$ |  $$ |\_$$  _|  $$  __$$\ $$  __$$\       $$\$$\$$ $$ | \____$$\ $$  __$$\  \____$$\ $$  __$$\ $$  __$$\ $$  __$$\ 
+// $$  __|    \$$$$  / $$$$$$$$ |$$ /      $$ |  $$ |  $$ |    $$ /  $$ |$$ |  \__|      $$ \$$$  $$ | $$$$$$$ |$$ |  $$ | $$$$$$$ |$$ /  $$ |$$$$$$$$ |$$ |  \__|
+// $$ |       $$  $$<  $$   ____|$$ |      $$ |  $$ |  $$ |$$\ $$ |  $$ |$$ |            $$ |\$  /$$ |$$  __$$ |$$ |  $$ |$$  __$$ |$$ |  $$ |$$   ____|$$ |      
+// $$$$$$$$\ $$  /\$$\ \$$$$$$$\ \$$$$$$$\ \$$$$$$  |  \$$$$  |\$$$$$$  |$$ |            $$ | \_/ $$ |\$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$$ |\$$$$$$$\ $$ |      
+// \________|\__/  \__| \_______| \_______| \______/    \____/  \______/ \__|            \__|     \__| \_______|\__|  \__| \_______| \____$$ | \_______|\__|      
+//                                                                                                                                  $$\   $$ |                    
+//                                                                                                                                  \$$$$$$  |                    
+//                                                                                                                                   \______/                     
+//
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IExecutorManager.sol";
-
-// invariants are properties that we expect to be maintained by the contract at 'all times'.
-
-// #invariant {:msg "Only the executorOwner can modify"} ExecutorManager != msg.sender == old(ExecutorManager);;
+import "./interfaces/IExecutorManager.sol";
 
 contract ExecutorManager is IExecutorManager, Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
@@ -23,7 +31,6 @@ contract ExecutorManager is IExecutorManager, Ownable {
         _;
     }
 
-    /// #if_succeeds $result == true;
     function getExecutorStatus(address executor) public view override returns (bool status) {
         return executors.contains(executor);
     }
@@ -41,7 +48,6 @@ contract ExecutorManager is IExecutorManager, Ownable {
     }
 
     //Register new Executors
-    
     function addExecutors(address[] calldata executorArray) external override onlyOwner {
         uint256 length = executorArray.length;
         for (uint256 i; i < length; ) {
