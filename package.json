@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-project",
+  "name": "scribble-project",
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.0",
     "dotenv": "^16.0.1",
