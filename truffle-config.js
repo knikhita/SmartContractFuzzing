@@ -6,7 +6,8 @@ module.exports = {
         host: "127.0.0.1",
         port: 8545,
         network_id: "*",
-        gasPrice: 20000000000
+        gas: 4612388,
+        // gasPrice: 735243057
       }
   },
   db: {enabled: true},

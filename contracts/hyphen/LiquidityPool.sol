@@ -29,12 +29,6 @@ import "../interfaces/IERC20Permit.sol";
 import "./interfaces/ITokenManager.sol";
 
 
-// Contract level assertions : INVARIANTS
-// Contract invariants are properties that we expect to be maintained by the contract at 'all times'.
-
-///#invariant currentLiquidity < providedLiquidity;
-
-
 contract LiquidityPool is
     Initializable,
     ReentrancyGuardUpgradeable,
@@ -142,7 +136,7 @@ contract LiquidityPool is
         liquidityProviders = ILiquidityProviders(_liquidityProviders);
         emit LiquidityProvidersChanged(_liquidityProviders);
     }
-
+/// #if_succeeds {:msg "TokenManager can't be 0"} old(tokenManager) != tokenManager;
     function setTokenManager(address _tokenManager) external onlyOwner {
         require(_tokenManager != address(0), "TokenManager can't be 0");
         tokenManager = ITokenManager(_tokenManager);
@@ -158,12 +152,15 @@ contract LiquidityPool is
         return address(executorManager);
     }
 
+// pre-condition Assesrtion :
+/// #if_succeeds {:msg "Executor Manager cannot be 0"} old(executorManager) != executorManager;
     function setExecutorManager(address _executorManagerAddress) external onlyOwner {
         require(_executorManagerAddress != address(0), "Executor Manager cannot be 0");
         executorManager = IExecutorManager(_executorManagerAddress);
     }
 
-/// #if_succeeds {:msg "getCurrentLiquidity should be more than 0"} result > 0;
+/// #if_succeeds {:msg "getCurrentLiquidity should be more than 0"} currentLiquidity > 0;
+
     function getCurrentLiquidity(address tokenAddress) public view returns (uint256 currentLiquidity) {
         uint256 liquidityPoolBalance = liquidityProviders.getCurrentLiquidity(tokenAddress);
 
@@ -206,8 +203,8 @@ contract LiquidityPool is
         // Emit (amount + reward amount) in event
         emit Deposit(sender, tokenAddress, receiver, toChainId, amount + rewardAmount, rewardAmount, tag);
     }
-
-
+// Post-condition Assertion : 
+/// #if_succeeds {:msg "Validate rewardAmount"} rewardAmount !=0;
     function getRewardAmount(uint256 amount, address tokenAddress) public view returns (uint256 rewardAmount) {
         uint256 currentLiquidity = getCurrentLiquidity(tokenAddress);
         uint256 providedLiquidity = liquidityProviders.getSuppliedLiquidityByToken(tokenAddress);
