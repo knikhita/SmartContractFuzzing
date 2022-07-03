@@ -12,7 +12,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 pragma abicoder v2;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -27,6 +27,13 @@ import "./interfaces/IExecutorManager.sol";
 import "./interfaces/ILiquidityProviders.sol";
 import "../interfaces/IERC20Permit.sol";
 import "./interfaces/ITokenManager.sol";
+
+
+// Contract level assertions : INVARIANTS
+// Contract invariants are properties that we expect to be maintained by the contract at 'all times'.
+
+///#invariant currentLiquidity < providedLiquidity;
+
 
 contract LiquidityPool is
     Initializable,
@@ -156,6 +163,7 @@ contract LiquidityPool is
         executorManager = IExecutorManager(_executorManagerAddress);
     }
 
+/// #if_succeeds {:msg "getCurrentLiquidity should be more than 0"} result > 0;
     function getCurrentLiquidity(address tokenAddress) public view returns (uint256 currentLiquidity) {
         uint256 liquidityPoolBalance = liquidityProviders.getCurrentLiquidity(tokenAddress);
 
@@ -198,6 +206,7 @@ contract LiquidityPool is
         // Emit (amount + reward amount) in event
         emit Deposit(sender, tokenAddress, receiver, toChainId, amount + rewardAmount, rewardAmount, tag);
     }
+
 
     function getRewardAmount(uint256 amount, address tokenAddress) public view returns (uint256 rewardAmount) {
         uint256 currentLiquidity = getCurrentLiquidity(tokenAddress);

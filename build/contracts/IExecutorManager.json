@@ -86,7 +86,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executorAddress\",\"type\":\"address\"}],\"name\":\"addExecutor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"executorArray\",\"type\":\"address[]\"}],\"name\":\"addExecutors\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllExecutors\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"}],\"name\":\"getExecutorStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executorAddress\",\"type\":\"address\"}],\"name\":\"removeExecutor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"executorArray\",\"type\":\"address[]\"}],\"name\":\"removeExecutors\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getExecutorStatus(address)\":{\"notice\":\"#if_succeeds $result == true;\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IExecutorManager.sol\":\"IExecutorManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IExecutorManager.sol\":{\"keccak256\":\"0xcda0676e810b95067b680770a78dbb6990a8f39cf93d5758d5445c7b3d6dd08e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac0909aca82f70e28a96ee105e1b6a95bfec1ce95e6d4535c771d817fee636ed\",\"dweb:/ipfs/QmVZjEvViyqKD8nHqGAgEhcG5G9BYdZ4KNB358GJCdXh9o\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executorAddress\",\"type\":\"address\"}],\"name\":\"addExecutor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"executorArray\",\"type\":\"address[]\"}],\"name\":\"addExecutors\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllExecutors\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"}],\"name\":\"getExecutorStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"executorAddress\",\"type\":\"address\"}],\"name\":\"removeExecutor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"executorArray\",\"type\":\"address[]\"}],\"name\":\"removeExecutors\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/hyphen/interfaces/IExecutorManager.sol\":\"IExecutorManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/hyphen/interfaces/IExecutorManager.sol\":{\"keccak256\":\"0x4fd1f71af6de05e80782a29b8e7ed077a6706c2aa310b7dd552444a9198cbc5a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://388af46b638d8ca394566e9af7481fa2562c577a2980e76adc03bb8b8b7ce544\",\"dweb:/ipfs/QmVHTFL7Y29Mk83y39zPcqXJjezWDSjDeD3zr6s8trWsBa\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -94,21 +94,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IExecutorManager {\n\n     /// #if_succeeds $result == true;\n    function getExecutorStatus(address executor) external view returns (bool status);\n   \n    function getAllExecutors() external view returns (address[] memory);\n\n    //Register new Executors\n    function addExecutors(address[] calldata executorArray) external;\n\n    // Register single executor\n    function addExecutor(address executorAddress) external;\n\n    //Remove registered Executors\n    function removeExecutors(address[] calldata executorArray) external;\n\n    // Remove Register single executor\n    function removeExecutor(address executorAddress) external;\n}\n\n",
-  "sourcePath": "/Users/nikhitakale/QA-Hyphen-V2/scribble-fuzzing/contracts/IExecutorManager.sol",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IExecutorManager {\n    function getExecutorStatus(address executor) external view returns (bool status);\n\n    function getAllExecutors() external view returns (address[] memory);\n\n    //Register new Executors\n    function addExecutors(address[] calldata executorArray) external;\n\n    // Register single executor\n    function addExecutor(address executorAddress) external;\n\n    //Remove registered Executors\n    function removeExecutors(address[] calldata executorArray) external;\n\n    // Remove Register single executor\n    function removeExecutor(address executorAddress) external;\n}\n",
+  "sourcePath": "/Users/nikhitakale/QA-Hyphen-V2/scribble-fuzzing/contracts/hyphen/interfaces/IExecutorManager.sol",
   "ast": {
-    "absolutePath": "project:/contracts/IExecutorManager.sol",
+    "absolutePath": "project:/contracts/hyphen/interfaces/IExecutorManager.sol",
     "exportedSymbols": {
       "IExecutorManager": [
-        772
+        10304
       ]
     },
-    "id": 773,
+    "id": 10305,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 735,
+        "id": 10268,
         "literals": [
           "solidity",
           "^",
@@ -116,7 +116,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:23:3"
+        "src": "33:23:28"
       },
       {
         "abstract": false,
@@ -125,42 +125,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 772,
+        "id": 10304,
         "linearizedBaseContracts": [
-          772
+          10304
         ],
         "name": "IExecutorManager",
-        "nameLocation": "68:16:3",
+        "nameLocation": "68:16:28",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "documentation": {
-              "id": 736,
-              "nodeType": "StructuredDocumentation",
-              "src": "93:33:3",
-              "text": "#if_succeeds $result == true;"
-            },
             "functionSelector": "0768d65c",
-            "id": 743,
+            "id": 10275,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getExecutorStatus",
-            "nameLocation": "140:17:3",
+            "nameLocation": "100:17:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 739,
+              "id": 10271,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 738,
+                  "id": 10270,
                   "mutability": "mutable",
                   "name": "executor",
-                  "nameLocation": "166:8:3",
+                  "nameLocation": "126:8:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "158:16:3",
+                  "scope": 10275,
+                  "src": "118:16:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -168,10 +162,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 737,
+                    "id": 10269,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "158:7:3",
+                    "src": "118:7:28",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -181,21 +175,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "157:18:3"
+              "src": "117:18:28"
             },
             "returnParameters": {
-              "id": 742,
+              "id": 10274,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 741,
+                  "id": 10273,
                   "mutability": "mutable",
                   "name": "status",
-                  "nameLocation": "204:6:3",
+                  "nameLocation": "164:6:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "199:11:3",
+                  "scope": 10275,
+                  "src": "159:11:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -203,10 +197,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 740,
+                    "id": 10272,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "199:4:3",
+                    "src": "159:4:28",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -215,42 +209,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "198:13:3"
+              "src": "158:13:28"
             },
-            "scope": 772,
-            "src": "131:81:3",
+            "scope": 10304,
+            "src": "91:81:28",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "fdfebffe",
-            "id": 749,
+            "id": 10281,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAllExecutors",
-            "nameLocation": "230:15:3",
+            "nameLocation": "187:15:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 744,
+              "id": 10276,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "245:2:3"
+              "src": "202:2:28"
             },
             "returnParameters": {
-              "id": 748,
+              "id": 10280,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 747,
+                  "id": 10279,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 749,
-                  "src": "271:16:3",
+                  "scope": 10281,
+                  "src": "228:16:28",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -259,19 +253,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 745,
+                      "id": 10277,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "271:7:3",
+                      "src": "228:7:28",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 746,
+                    "id": 10278,
                     "nodeType": "ArrayTypeName",
-                    "src": "271:9:3",
+                    "src": "228:9:28",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -280,36 +274,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "270:18:3"
+              "src": "227:18:28"
             },
-            "scope": 772,
-            "src": "221:68:3",
+            "scope": 10304,
+            "src": "178:68:28",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "1ecd9cd8",
-            "id": 755,
+            "id": 10287,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "addExecutors",
-            "nameLocation": "333:12:3",
+            "nameLocation": "290:12:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 753,
+              "id": 10285,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 752,
+                  "id": 10284,
                   "mutability": "mutable",
                   "name": "executorArray",
-                  "nameLocation": "365:13:3",
+                  "nameLocation": "322:13:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 755,
-                  "src": "346:32:3",
+                  "scope": 10287,
+                  "src": "303:32:28",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -318,19 +312,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 750,
+                      "id": 10282,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "346:7:3",
+                      "src": "303:7:28",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 751,
+                    "id": 10283,
                     "nodeType": "ArrayTypeName",
-                    "src": "346:9:3",
+                    "src": "303:9:28",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -339,42 +333,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "345:34:3"
+              "src": "302:34:28"
             },
             "returnParameters": {
-              "id": 754,
+              "id": 10286,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "388:0:3"
+              "src": "345:0:28"
             },
-            "scope": 772,
-            "src": "324:65:3",
+            "scope": 10304,
+            "src": "281:65:28",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "1f5a0bbe",
-            "id": 760,
+            "id": 10292,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "addExecutor",
-            "nameLocation": "436:11:3",
+            "nameLocation": "393:11:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 758,
+              "id": 10290,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 757,
+                  "id": 10289,
                   "mutability": "mutable",
                   "name": "executorAddress",
-                  "nameLocation": "456:15:3",
+                  "nameLocation": "413:15:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 760,
-                  "src": "448:23:3",
+                  "scope": 10292,
+                  "src": "405:23:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -382,10 +376,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 756,
+                    "id": 10288,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "448:7:3",
+                    "src": "405:7:28",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -395,42 +389,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "447:25:3"
+              "src": "404:25:28"
             },
             "returnParameters": {
-              "id": 759,
+              "id": 10291,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "481:0:3"
+              "src": "438:0:28"
             },
-            "scope": 772,
-            "src": "427:55:3",
+            "scope": 10304,
+            "src": "384:55:28",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "dc09c3e4",
-            "id": 766,
+            "id": 10298,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "removeExecutors",
-            "nameLocation": "531:15:3",
+            "nameLocation": "488:15:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 764,
+              "id": 10296,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 763,
+                  "id": 10295,
                   "mutability": "mutable",
                   "name": "executorArray",
-                  "nameLocation": "566:13:3",
+                  "nameLocation": "523:13:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 766,
-                  "src": "547:32:3",
+                  "scope": 10298,
+                  "src": "504:32:28",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -439,19 +433,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 761,
+                      "id": 10293,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "547:7:3",
+                      "src": "504:7:28",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 762,
+                    "id": 10294,
                     "nodeType": "ArrayTypeName",
-                    "src": "547:9:3",
+                    "src": "504:9:28",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -460,42 +454,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "546:34:3"
+              "src": "503:34:28"
             },
             "returnParameters": {
-              "id": 765,
+              "id": 10297,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "589:0:3"
+              "src": "546:0:28"
             },
-            "scope": 772,
-            "src": "522:68:3",
+            "scope": 10304,
+            "src": "479:68:28",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "24788429",
-            "id": 771,
+            "id": 10303,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "removeExecutor",
-            "nameLocation": "644:14:3",
+            "nameLocation": "601:14:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 769,
+              "id": 10301,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 768,
+                  "id": 10300,
                   "mutability": "mutable",
                   "name": "executorAddress",
-                  "nameLocation": "667:15:3",
+                  "nameLocation": "624:15:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 771,
-                  "src": "659:23:3",
+                  "scope": 10303,
+                  "src": "616:23:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -503,10 +497,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 767,
+                    "id": 10299,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "659:7:3",
+                    "src": "616:7:28",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -516,27 +510,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "658:25:3"
+              "src": "615:25:28"
             },
             "returnParameters": {
-              "id": 770,
+              "id": 10302,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "692:0:3"
+              "src": "649:0:28"
             },
-            "scope": 772,
-            "src": "635:58:3",
+            "scope": 10304,
+            "src": "592:58:28",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 773,
-        "src": "58:637:3",
+        "scope": 10305,
+        "src": "58:594:28",
         "usedErrors": []
       }
     ],
-    "src": "33:664:3"
+    "src": "33:620:28"
   },
   "compiler": {
     "name": "solc",
@@ -544,7 +538,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-07-01T11:22:05.299Z",
+  "updatedAt": "2022-07-03T18:26:08.864Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
@@ -552,11 +546,7 @@
   },
   "userdoc": {
     "kind": "user",
-    "methods": {
-      "getExecutorStatus(address)": {
-        "notice": "#if_succeeds $result == true;"
-      }
-    },
+    "methods": {},
     "version": 1
   },
   "db": {
@@ -567,7 +557,7 @@
       "id": "0x2cdc5c5f756f555319272af6740217ecb0d9451b44e748689b42eb518eb5ef1b"
     },
     "contract": {
-      "id": "0xc316e6e4eae2a5cb63b1f371497f0ddbbf78bd534adc163b0ce42b65f45534f2"
+      "id": "0x2c7c951fb792d53bcd2198cb632edf850e6acd2e1c749e05e1680a75016b8798"
     }
   }
 }

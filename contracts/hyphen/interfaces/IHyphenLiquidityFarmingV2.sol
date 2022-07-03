@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 interface IHyphenLiquidityFarmingV2 {
     function changePauser(address newPauser) external;
 
