@@ -6,6 +6,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "./IExecutorManager.sol";
 
+// invariants are properties that we expect to be maintained by the contract at 'all times'.
+
+// #invariant {:msg "Only the executorOwner can modify"} ExecutorManager != msg.sender == old(ExecutorManager);;
+
 contract ExecutorManager is IExecutorManager, Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
     EnumerableSet.AddressSet private executors;
